@@ -1,11 +1,13 @@
 import json
 from rest_framework.decorators import api_view
 from rest_framework.views import Request, Response
+from pathlib import Path
 
 from devtrack.issues.models import Reporter, Issue, CriticalIssue, LowPriorityIssue
 
-REPORTERS_FILE = "D:/siddarth/AirTribe/python/django/AirTribe/assignment1/devtrack/data/reporters.json"
-ISSUES_FILE = "D:/siddarth/AirTribe/python/django/AirTribe/assignment1/devtrack/data/issues.json"
+BASE_DIR = Path(__file__).resolve().parent.parent
+REPORTERS_FILE = BASE_DIR / "data" / "reporters.json"
+ISSUES_FILE = BASE_DIR / "data" / "issues.json"
 
 
 def intiate_reporter_ids():
