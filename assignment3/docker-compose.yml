@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:18.3
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: teamboard_db
+      POSTGRES_USER: teamboard_user
+      POSTGRES_PASSWORD: teamboard_password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U teamboard_user -d teamboard_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  postgres_data:
