@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'pulsenotify.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_DB', 'pulse'),
-        'USER': os.environ.get('POSTGRES_USER', 'pulse'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'pulse'),
+        'NAME': os.environ.get('POSTGRES_DB', 'pulse_db'),
+        'USER': os.environ.get('POSTGRES_USER', 'pulse_user'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'pulse_password'),
         'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
-        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+        'PORT': os.environ.get('POSTGRES_PORT', '5435'),
     }
 }
 
